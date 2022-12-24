@@ -1,0 +1,57 @@
+.nav-bar {
+  background: #131313;
+  opacity: 0.2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.nav-items-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-link {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.header-logo {
+  width: 135px;
+  height: 40px;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+}
+
+.menu-item {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26px;
+  margin-right: 16px;
+}
+
+.search-btn {
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-right: 16px;
+  color: #ffffff;
+}
+
+.search-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.profile-img {
+  border-radius: 48px;
+  height: 48px;
+  width: 48px;
+}

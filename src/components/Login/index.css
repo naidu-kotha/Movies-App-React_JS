@@ -1,0 +1,104 @@
+.login-bg {
+  background: linear-gradient(
+      116.64deg,
+      rgba(0, 0, 0, 0.8) 0.46%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url(https://res.cloudinary.com/dck3ikgrn/image/upload/v1671795321/Movies%20App/Login_bg_nedpk8.jpg);
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 60px;
+}
+
+.netflix-logo {
+  width: 180px;
+  height: 52px;
+  align-self: flex-start;
+}
+
+.login-card {
+  background-color: #0c0b10;
+  opacity: 0.8;
+  border-radius: 8px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 33%;
+}
+
+.login-heading {
+  color: #ffffff;
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  margin: 0;
+  align-self: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.label-text {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  margin-bottom: 6px;
+  margin-top: 20px;
+}
+
+.input-box {
+  background: #333333;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #e2e8f0;
+  padding-left: 10px;
+  height: 35px;
+  width: 350px;
+}
+
+.login-btn {
+  background: #e50914;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  color: #f8fafc;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.error-msg {
+  color: #dc2626;
+  margin: 0;
+  margin-top: 10px;
+  font-family: HK Grotesk;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
