@@ -1,6 +1,6 @@
 .nav-bar {
-  /* background: #131313;
-  opacity: 0.2; */
+  background: #131313;
+  opacity: 0.7;
   display: flex;
   justify-content: space-between;
   align-items: center;
