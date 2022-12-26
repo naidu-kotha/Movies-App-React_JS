@@ -1,0 +1,10 @@
+.movie-image {
+  width: 255px;
+  height: 170px;
+  padding-inline: 15px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: #fff!important;
+}

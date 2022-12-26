@@ -2,15 +2,12 @@
   display: flex;
   flex-direction: column;
   min-height: 50vh;
-  background-size: cover;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(24, 24, 24, 0.546875) 38.26%,
-    #181818 92.82%,
-    #181818 98.68%,
-    #181818 108.61%
-  );
+  background-size: fit;
+  background-color: #181818;
+}
+.home-success-bg {
+  display: flex;
+  flex-direction: column;
 }
 
 .poster-details-container {
@@ -26,6 +23,7 @@
   font-size: 64px;
   line-height: 62px;
   color: #ffffff;
+  margin-bottom: 0;
 }
 
 .poster-overview {
@@ -47,9 +45,57 @@
   border: none;
   outline: none;
   font-family: 'HK Grotesk';
-font-style: normal;
-font-weight: 600;
-font-size: 14px;
-color: #171F46;
-flex-grow: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #171f46;
+  flex-grow: 0;
+}
+
+.home-bottom-card {
+  background-color: #181818;
+  padding: 20px 60px;
+}
+
+.movies-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.movie-type-heading {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+  margin: 0;
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.slick-container {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 10px;
+  padding-left: 30px;
+}
+
+.failure-poster-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  background: #0d0d0d;
+  margin: 20px 60px;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
 }

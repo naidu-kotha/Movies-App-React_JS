@@ -1,5 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
+import MoviesSlider from '../MoviesSlider'
 import Header from '../Header'
 import './index.css'
 
@@ -38,7 +40,7 @@ class Home extends Component {
     // console.log(response)
     if (response.ok) {
       const originalsData = await response.json()
-      //   console.log(originalsData)
+      console.log(originalsData)
       const randomMovieDataIndex = Math.floor(
         Math.random() * originalsData.results.length,
       )
@@ -53,7 +55,7 @@ class Home extends Component {
       }))
 
       const randomOriginalsMovie = updatedOriginalsData[randomMovieDataIndex]
-      //   console.log(randomOriginalsMovie)
+      // console.log(randomOriginalsMovie)
       this.setState({
         randomOriginalsMovie,
         originalMoviesArray: updatedOriginalsData,
@@ -78,7 +80,7 @@ class Home extends Component {
     // console.log(response)
     if (response.ok) {
       const data = await response.json()
-      //   console.log(data)
+      console.log(data)
       const trendingMoviesArray = data.results.map(eachResult => ({
         id: eachResult.id,
         backdropPath: eachResult.backdrop_path,
@@ -95,63 +97,35 @@ class Home extends Component {
     }
   }
 
-  renderFailurePoster = () => (
-    <div className="failure-poster-container">
-      <h1>Something Went Wrong</h1>
+  renderLoadingView = () => (
+    <div className="loader-container" testid="loader">
+      <Loader type="TailSpin" color="#ffffff" height={80} width={80} />
     </div>
   )
 
-  renderPoster = () => {
-    const {originalMoviesApiStatus} = this.state
-
-    switch (originalMoviesApiStatus) {
-      case apiStatusConstants.success:
-        return this.renderTopCard()
-      //   case apiStatusConstants.failure:
-      //     return this.renderFailurePoster()
-      //   case apiStatusConstants.inProgress:
-      //     return this.renderLoadingView()
-      default:
-        return null
-    }
-  }
-
-  //   renderOriginalMovies = () => {
-  //       const {originalMoviesApiStatus} = this.state
-
-  //     switch (originalMoviesApiStatus) {
-  //       case apiStatusConstants.success:
-  //         return this.
-  //       case apiStatusConstants.failure:
-  //         return this.renderFailureView()
-  //       case apiStatusConstants.inProgress:
-  //         return this.renderLoadingView()
-  //       default:
-  //         return null
-  //     }
-  //   }
-
-  //   renderTrendingMovies = () => {
-  //       const {trendingMoviesApiStatus} = this.state
-
-  //     switch (originalMoviesApiStatus) {
-  //       case apiStatusConstants.success:
-  //         return this.
-  //       case apiStatusConstants.failure:
-  //         return this.renderFailureView()
-  //       case apiStatusConstants.inProgress:
-  //         return this.renderLoadingView()
-  //       default:
-  //         return null
-  //     }
-  //   }
+  renderFailureView = () => (
+    <>
+      <Header />
+      <div className="failure-poster-container">
+        <img
+          src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
+          alt="failure view"
+          className="failure-image"
+        />
+        <p>Something Went Wrong</p>
+        <button type="button" className="retry-btn">
+          Try Again
+        </button>
+      </div>
+    </>
+  )
 
   renderTopCard = () => {
     const {randomOriginalsMovie} = this.state
     const {overview, backdropPath, title} = randomOriginalsMovie
     return (
       <div
-        className="home-top-bg"
+        className="home-success-bg"
         style={{backgroundImage: `url(${backdropPath})`}}
       >
         <Header />
@@ -166,12 +140,75 @@ class Home extends Component {
     )
   }
 
+  renderPoster = () => {
+    const {originalMoviesApiStatus} = this.state
+
+    switch (originalMoviesApiStatus) {
+      case apiStatusConstants.success:
+        return this.renderTopCard()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
+  renderTrendingNowMoviesCarousel = () => {
+    const {trendingMoviesArray} = this.state
+    return <MoviesSlider moviesList={trendingMoviesArray} />
+  }
+
+  renderOriginalMoviesCarousel = () => {
+    const {originalMoviesArray} = this.state
+    return <MoviesSlider moviesList={originalMoviesArray} />
+  }
+
+  renderOriginalMovies = () => {
+    const {originalMoviesApiStatus} = this.state
+
+    switch (originalMoviesApiStatus) {
+      case apiStatusConstants.success:
+        return this.renderOriginalMoviesCarousel()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
+  renderTrendingMovies = () => {
+    const {trendingMoviesApiStatus} = this.state
+
+    switch (trendingMoviesApiStatus) {
+      case apiStatusConstants.success:
+        return this.renderTrendingNowMoviesCarousel()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
   render() {
     return (
       <>
-        {this.renderPoster()}
-        {/* {this.renderTrendingMovies()} */}
-        {/* {this.renderOriginalMovies()} */}
+        <div className="home-top-bg">{this.renderPoster()}</div>
+        <div className="home-bottom-card">
+          <div className="movies-container">
+            <h1 className="movie-type-heading">Trending Now</h1>
+            <div className="slick-container">{this.renderTrendingMovies()}</div>
+          </div>
+          <div className="movies-container">
+            <h1 className="movie-type-heading">Originals</h1>
+            <div className="slick-container">{this.renderOriginalMovies()}</div>
+          </div>
+        </div>
       </>
     )
   }
