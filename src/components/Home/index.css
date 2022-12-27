@@ -1,19 +1,22 @@
 .home-top-bg {
   display: flex;
   flex-direction: column;
-  min-height: 50vh;
+  height: 70vh;
   background-size: fit;
-  background-color: #181818;
+  background: #181818;
 }
+
 .home-success-bg {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .poster-details-container {
   display: flex;
   flex-direction: column;
   padding: 20px 60px;
+  flex-wrap: wrap;
 }
 
 .poster-title {
@@ -33,7 +36,7 @@
   font-size: 20px;
   line-height: 26px;
   color: #ffffff;
-  width: 40%;
+  width: 60%;
 }
 
 .poster-btn {
@@ -54,7 +57,7 @@
 
 .home-bottom-card {
   background-color: #181818;
-  padding: 20px 60px;
+  padding: 40px 60px;
 }
 
 .movies-container {
@@ -78,9 +81,18 @@
 
 .slick-container {
   width: 100%;
-  max-width: 1100px;
   margin-top: 10px;
-  padding-left: 30px;
+}
+
+.top-failure-poster-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 30vh;
+  height: 80%;
+  background: #0d0d0d;
+  margin: 0px 60px;
 }
 
 .failure-poster-container {
@@ -88,14 +100,59 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  min-height: 30vh;
+  height: 100%;
   background: #0d0d0d;
-  margin: 20px 60px;
+}
+
+.failure-poster {
+  width: 44px;
+  height: 38px;
+}
+
+.failure-image {
+  width: 29px;
+  height: 25px;
+}
+
+.failure-msg {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #ffffff;
+}
+
+.retry-btn {
+  padding: 4px 16px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'HK Grotesk';
+  font-weight: 600;
+  font-size: 12px;
+  color: #171f46;
+}
+
+.loader-container-poster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  min-height: 80%;
+  background: #0d0d0d;
+  margin: 0px 60px;
 }
 
 .loader-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 30vh;
+  min-height: 100%;
+  background: #0d0d0d;
+  min-width: 100%;
 }

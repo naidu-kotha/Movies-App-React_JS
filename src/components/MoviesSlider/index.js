@@ -45,7 +45,7 @@ const MoviesSlider = props => {
       {moviesList.map(eachMovie => {
         const {posterPath, title} = eachMovie
         return (
-          <div>
+          <div className="slick-item">
             <img src={posterPath} alt={title} className="movie-image" />
           </div>
         )

@@ -97,22 +97,51 @@ class Home extends Component {
     }
   }
 
+  renderLoadingPoster = () => (
+    <>
+      <Header />
+      <div className="loader-container-poster" testid="loader">
+        <Loader type="TailSpin" color="#D81F26" height={80} width={80} />
+      </div>
+    </>
+  )
+
+  renderFailurePoster = () => (
+    <>
+      <Header />
+      <div className="top-failure-poster-container">
+        <img
+          src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
+          alt="failure view"
+          className="failure-poster"
+        />
+        <p className="failure-msg">Something went wrong. Please try again</p>
+        <button type="button" className="retry-btn">
+          Try Again
+        </button>
+      </div>
+    </>
+  )
+
   renderLoadingView = () => (
-    <div className="loader-container" testid="loader">
-      <Loader type="TailSpin" color="#ffffff" height={80} width={80} />
-    </div>
+    <>
+      {/* <Header /> */}
+      <div className="loader-container" testid="loader">
+        <Loader type="TailSpin" color="#D81F26" height={80} width={80} />
+      </div>
+    </>
   )
 
   renderFailureView = () => (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="failure-poster-container">
         <img
           src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
           alt="failure view"
           className="failure-image"
         />
-        <p>Something Went Wrong</p>
+        <p className="failure-msg">Something went wrong. Please try again</p>
         <button type="button" className="retry-btn">
           Try Again
         </button>
@@ -147,9 +176,9 @@ class Home extends Component {
       case apiStatusConstants.success:
         return this.renderTopCard()
       case apiStatusConstants.failure:
-        return this.renderFailureView()
+        return this.renderFailurePoster()
       case apiStatusConstants.inProgress:
-        return this.renderLoadingView()
+        return this.renderLoadingPoster()
       default:
         return null
     }
@@ -198,6 +227,7 @@ class Home extends Component {
   render() {
     return (
       <>
+        {/* <Header /> */}
         <div className="home-top-bg">{this.renderPoster()}</div>
         <div className="home-bottom-card">
           <div className="movies-container">
