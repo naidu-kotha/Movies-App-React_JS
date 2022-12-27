@@ -1,6 +1,8 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
+
 import MoviesSlider from '../MoviesSlider'
 import Header from '../Header'
 import './index.css'
@@ -224,10 +226,21 @@ class Home extends Component {
     }
   }
 
+  renderFooter = () => (
+    <div className="footer-container">
+      <div>
+        <FaGoogle className="footer-icon" />
+        <FaTwitter className="footer-icon" />
+        <FaInstagram className="footer-icon" />
+        <FaYoutube className="footer-icon" />
+      </div>
+      <p className="footer-text">Contact Us</p>
+    </div>
+  )
+
   render() {
     return (
       <>
-        {/* <Header /> */}
         <div className="home-top-bg">{this.renderPoster()}</div>
         <div className="home-bottom-card">
           <div className="movies-container">
@@ -238,6 +251,7 @@ class Home extends Component {
             <h1 className="movie-type-heading">Originals</h1>
             <div className="slick-container">{this.renderOriginalMovies()}</div>
           </div>
+          {this.renderFooter()}
         </div>
       </>
     )

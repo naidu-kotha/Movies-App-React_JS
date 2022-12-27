@@ -156,3 +156,25 @@
   background: #0d0d0d;
   min-width: 100%;
 }
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-icon {
+  height: 21px;
+  width: 21px;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.footer-text {
+  font-family: 'HK Grotesk';
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+}
