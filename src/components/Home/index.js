@@ -1,10 +1,10 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {FaGoogle, FaTwitter, FaInstagram, FaYoutube} from 'react-icons/fa'
 
 import MoviesSlider from '../MoviesSlider'
 import Header from '../Header'
+import Footer from '../Footer'
 import './index.css'
 
 const apiStatusConstants = {
@@ -108,6 +108,10 @@ class Home extends Component {
     </>
   )
 
+  reloadOriginalsApi = () => {
+    this.getOriginalsApi()
+  }
+
   renderFailurePoster = () => (
     <>
       <Header />
@@ -118,7 +122,11 @@ class Home extends Component {
           className="failure-poster"
         />
         <p className="failure-msg">Something went wrong. Please try again</p>
-        <button type="button" className="retry-btn">
+        <button
+          type="button"
+          className="retry-btn"
+          onClick={this.reloadOriginalsApi}
+        >
           Try Again
         </button>
       </div>
@@ -134,7 +142,11 @@ class Home extends Component {
     </>
   )
 
-  renderFailureView = () => (
+  reloadTrendingMoviesApi = () => {
+    this.getTrendingMoviesApi()
+  }
+
+  renderOriginalsFailureView = () => (
     <>
       {/* <Header /> */}
       <div className="failure-poster-container">
@@ -144,7 +156,31 @@ class Home extends Component {
           className="failure-image"
         />
         <p className="failure-msg">Something went wrong. Please try again</p>
-        <button type="button" className="retry-btn">
+        <button
+          type="button"
+          className="retry-btn"
+          onClick={this.reloadOriginalsApi}
+        >
+          Try Again
+        </button>
+      </div>
+    </>
+  )
+
+  renderTrendingMoviesFailureView = () => (
+    <>
+      <div className="failure-poster-container">
+        <img
+          src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
+          alt="failure view"
+          className="failure-image"
+        />
+        <p className="failure-msg">Something went wrong. Please try again</p>
+        <button
+          type="button"
+          className="retry-btn"
+          onClick={this.reloadTrendingMoviesApi}
+        >
           Try Again
         </button>
       </div>
@@ -203,7 +239,7 @@ class Home extends Component {
       case apiStatusConstants.success:
         return this.renderOriginalMoviesCarousel()
       case apiStatusConstants.failure:
-        return this.renderFailureView()
+        return this.renderOriginalsFailureView()
       case apiStatusConstants.inProgress:
         return this.renderLoadingView()
       default:
@@ -218,25 +254,13 @@ class Home extends Component {
       case apiStatusConstants.success:
         return this.renderTrendingNowMoviesCarousel()
       case apiStatusConstants.failure:
-        return this.renderFailureView()
+        return this.renderTrendingMoviesFailureView()
       case apiStatusConstants.inProgress:
         return this.renderLoadingView()
       default:
         return null
     }
   }
-
-  renderFooter = () => (
-    <div className="footer-container">
-      <div>
-        <FaGoogle className="footer-icon" />
-        <FaTwitter className="footer-icon" />
-        <FaInstagram className="footer-icon" />
-        <FaYoutube className="footer-icon" />
-      </div>
-      <p className="footer-text">Contact Us</p>
-    </div>
-  )
 
   render() {
     return (
@@ -251,7 +275,7 @@ class Home extends Component {
             <h1 className="movie-type-heading">Originals</h1>
             <div className="slick-container">{this.renderOriginalMovies()}</div>
           </div>
-          {this.renderFooter()}
+          <Footer />
         </div>
       </>
     )

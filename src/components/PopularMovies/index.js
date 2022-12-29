@@ -1,8 +1,10 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {Link} from 'react-router-dom'
 
 import Header from '../Header'
+import Footer from '../Footer'
 import './index.css'
 
 const apiStatusConstants = {
@@ -85,11 +87,17 @@ class PopularMovies extends Component {
     return (
       <ul className="popular-movies-container">
         {popularMoviesArray.map(eachMovie => {
-          const {title, posterPath} = eachMovie
+          const {id, title, posterPath} = eachMovie
           return (
-            <li key={title}>
-              <img src={posterPath} alt={title} className="popular-movie-img" />
-            </li>
+            <Link to={`/movies/${id}`}>
+              <li key={title}>
+                <img
+                  src={posterPath}
+                  alt={title}
+                  className="popular-movie-img"
+                />
+              </li>
+            </Link>
           )
         })}
       </ul>
@@ -116,6 +124,7 @@ class PopularMovies extends Component {
       <div className="popular-movies-bg">
         <Header />
         {this.renderPopularMovies()}
+        <Footer />
       </div>
     )
   }

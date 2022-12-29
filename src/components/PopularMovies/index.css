@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
 }
 
 .popular-movies-failure-container {
@@ -15,26 +15,24 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
 }
 
 .popular-movies-failure-image {
-  height: 276px;
-  width: 375px;
+  height: 200px;
+  width: 300px;
 }
 
 .popular-movies-failure-msg {
   font-family: 'HK Grotesk';
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 31px;
   color: #ffffff;
 }
 
 .popular-movies-retry-btn {
   padding: 8px 12px;
-  width: 110px;
-  height: 48px;
   background: #ffffff;
   font-weight: 600;
   font-size: 14px;

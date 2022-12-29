@@ -1,0 +1,116 @@
+.movie-details-bg {
+  background-color: #181818;
+  min-height: 100vh;
+}
+
+.movie-details-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.movie-details-failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.movie-details-failure-image {
+  height: 200px;
+  width: 300px;
+}
+
+.movie-details-failure-msg {
+  font-family: 'HK Grotesk';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 31px;
+  color: #ffffff;
+}
+
+.movie-details-retry-btn {
+  padding: 8px 12px;
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #171f46;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.movie-details-success-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+}
+
+.movie-details-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 60px;
+  justify-content: center;
+  min-height: 40vh;
+}
+
+.movie-details-heading {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 63px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.timeline-certification-container {
+  display: flex;
+  align-items: center;
+}
+
+.timeline {
+  font-family: 'HK Grotesk';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
+  margin-right: 20px;
+}
+
+.certification {
+  border: 1px solid #ffffff;
+  border-radius: 2px;
+  font-family: 'HK Grotesk';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  color: #ffffff;
+  padding: 2px 12px;
+  margin-right: 20px;
+}
+
+.movie-details-overview {
+  font-family: 'HK Grotesk';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+  color: #ffffff;
+}
+
+.movie-details-play-btn {
+  padding: 10px 0px;
+  width: 74px;
+  background: #ffffff;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-family: 'HK Grotesk';
+  font-weight: 600;
+  font-size: 14px;
+  color: #171f46;
+}
