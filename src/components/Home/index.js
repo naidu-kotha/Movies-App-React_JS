@@ -42,7 +42,7 @@ class Home extends Component {
     // console.log(response)
     if (response.ok) {
       const originalsData = await response.json()
-      console.log(originalsData)
+      //   console.log(originalsData)
       const randomMovieDataIndex = Math.floor(
         Math.random() * originalsData.results.length,
       )
@@ -57,7 +57,7 @@ class Home extends Component {
       }))
 
       const randomOriginalsMovie = updatedOriginalsData[randomMovieDataIndex]
-      // console.log(randomOriginalsMovie)
+      //   console.log(updatedOriginalsData)
       this.setState({
         randomOriginalsMovie,
         originalMoviesArray: updatedOriginalsData,
@@ -82,7 +82,7 @@ class Home extends Component {
     // console.log(response)
     if (response.ok) {
       const data = await response.json()
-      console.log(data)
+      //   console.log(data)
       const trendingMoviesArray = data.results.map(eachResult => ({
         id: eachResult.id,
         backdropPath: eachResult.backdrop_path,

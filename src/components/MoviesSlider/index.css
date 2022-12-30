@@ -1,10 +1,11 @@
 .movie-image {
-  width: 255px;
-  max-height: 130px;
-  padding-inline: 15px;
+  width: 270px;
+  max-height: 170px;
+  border-radius: 8px;
+  margin-inline: 15px;
 }
 
 .slick-prev:before,
 .slick-next:before {
-    color: #fff!important;
+  color: #fff !important;
 }

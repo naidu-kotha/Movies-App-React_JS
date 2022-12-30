@@ -114,3 +114,52 @@
   font-size: 14px;
   color: #171f46;
 }
+
+.movie-details-info-container {
+  padding: 20px 60px;
+  display: flex;
+}
+
+.info-container {
+  min-width: 250px;
+}
+
+.info-heading {
+  font-family: 'HK Grotesk';
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.info-details {
+  font-family: 'HK Grotesk';
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.more-movies-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 60px;
+}
+
+.more-movies-heading {
+  font-family: 'HK Grotesk';
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  color: #ffffff;
+}
+
+.movies-list-container {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+}

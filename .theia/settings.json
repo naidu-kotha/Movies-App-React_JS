@@ -1,5 +1,12 @@
 {
     "cSpell.words": [
-        "testid"
+        "min",
+        "px",
+        "testid",
+        "width"
+    ],
+    "cSpell.ignoreWords": [
+        "min",
+        "width"
     ]
 }

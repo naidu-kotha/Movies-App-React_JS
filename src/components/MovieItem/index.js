@@ -1,10 +1,11 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {getYear, intervalToDuration} from 'date-fns'
+import {getYear, format, intervalToDuration} from 'date-fns'
 
 import Header from '../Header'
 import Footer from '../Footer'
+import SimilarMovies from '../SimilarMovies'
 import './index.css'
 
 const apiStatusConstants = {
@@ -109,9 +110,9 @@ class MovieItem extends Component {
       backdropPath,
       budget,
       genres,
-      id,
+      //   id,
       overview,
-      posterPath,
+      //   posterPath,
       releaseDate,
       runtime,
       similarMovies,
@@ -128,13 +129,17 @@ class MovieItem extends Component {
       start: new Date(0, 0, 0, 0, 0, 0),
       end: new Date(0, 0, 0, 0, runtime, 0),
     })
-    console.log(time)
+    // console.log(time)
+
+    const updatedReleaseDate = format(new Date(releaseDate), 'do LLLL y')
+    // console.log(updatedReleaseDate)
 
     return (
-      <div
-        className="movie-details-success-container"
-        style={{
-          background: `linear-gradient(
+      <>
+        <div
+          className="movie-details-success-container"
+          style={{
+            background: `linear-gradient(
     180deg,
     rgba(0, 0, 0, 0) 0%,
     rgba(24, 24, 24, 0.546875) 38.26%,
@@ -142,27 +147,77 @@ class MovieItem extends Component {
     #181818 98.68%,
     #181818 108.61%
   ),url(${backdropPath})`,
-          backgroundSize: 'cover',
-        }}
-      >
-        <Header />
-        <div className="movie-details-container">
-          <h1 className="movie-details-heading">{title}</h1>
-          <div className="timeline-certification-container">
-            <p className="timeline">{`${time.hours}h ${time.minutes}m`}</p>
-            {adult ? (
-              <p className="certification">A</p>
-            ) : (
-              <p className="certification">U/A</p>
-            )}
-            <p className="timeline">{year}</p>
+            backgroundSize: 'cover',
+          }}
+        >
+          <Header />
+          <div className="movie-details-container">
+            <h1 className="movie-details-heading">{title}</h1>
+            <div className="timeline-certification-container">
+              <p className="timeline">{`${time.hours}h ${time.minutes}m`}</p>
+              {adult ? (
+                <p className="certification">A</p>
+              ) : (
+                <p className="certification">U/A</p>
+              )}
+              <p className="timeline">{year}</p>
+            </div>
+            <p className="movie-details-overview">{overview}</p>
+            <button type="button" className="movie-details-play-btn">
+              Play
+            </button>
           </div>
-          <p className="movie-details-overview">{overview}</p>
-          <button type="button" className="movie-details-play-btn">
-            Play
-          </button>
         </div>
-      </div>
+        <div className="movie-details-info-container">
+          <div className="info-container">
+            <h1 className="info-heading">Genres</h1>
+            {genres.map(eachGenre => (
+              <p className="info-details" key={eachGenre.id}>
+                {eachGenre.name}
+              </p>
+            ))}
+          </div>
+          <div className="info-container">
+            <h1 className="info-heading">Audio Available</h1>
+            {spokenLanguages.map(eachLanguage => (
+              <p className="info-details" key={eachLanguage.id}>
+                {eachLanguage.english_name}
+              </p>
+            ))}
+          </div>
+          <div>
+            <div className="info-container">
+              <h1 className="info-heading">Rating Count</h1>
+              <p className="info-details">{voteCount}</p>
+            </div>
+            <div className="info-container">
+              <h1 className="info-heading">Rating Average</h1>
+              <p className="info-details">{voteAverage}</p>
+            </div>
+          </div>
+          <div>
+            <div className="info-container">
+              <h1 className="info-heading">Budget</h1>
+              <p className="info-details">{budget}</p>
+            </div>
+            <div className="info-container">
+              <h1 className="info-heading">Release Date</h1>
+              <p className="info-details">{updatedReleaseDate}</p>
+            </div>
+          </div>
+        </div>
+        <div className="more-movies-container">
+          <h1 className="more-movies-heading">More like this</h1>
+          <ul className="movies-list-container">
+            {similarMovies.map(eachMovie => (
+              <SimilarMovies
+                key={eachMovie.id}
+                similarMovieDetails={eachMovie}
+              />
+            ))}
+          </ul>
+        </div>
+      </>
     )
   }
 
