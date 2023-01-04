@@ -5,15 +5,19 @@ import {HiOutlineSearch} from 'react-icons/hi'
 import './index.css'
 
 class Header extends Component {
-  state = {searchClicked: false}
+  state = {searchClicked: false, searchInput: ''}
 
   toggleSearchContainer = () => {
     const {searchClicked} = this.state
     this.setState({searchClicked: !searchClicked})
   }
 
+  onChangeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
   render() {
-    const {searchClicked} = this.state
+    const {searchClicked, searchInput} = this.state
     const searchContainerClassName = searchClicked
       ? 'search-container'
       : 'hide-elements'
@@ -44,8 +48,13 @@ class Header extends Component {
         </div>
         <div className="nav-items-container">
           <div className={searchContainerClassName}>
-            <input type="search" className="search-bar" />
-            <HiOutlineSearch className="search-logo" />
+            <input
+              type="search"
+              className="search-bar"
+              value={searchInput}
+              onChange={this.onChangeSearchInput}
+            />
+            <HiOutlineSearch className="search-container-logo" />
           </div>
           <button
             type="button"
