@@ -37,6 +37,15 @@
   margin-right: 16px;
 }
 
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.hide-elements {
+  display: none;
+}
+
 .search-btn {
   padding: 0;
   border: none;
@@ -49,6 +58,7 @@
 .search-logo {
   width: 24px;
   height: 24px;
+  color: #ffffff;
 }
 
 .profile-img {
