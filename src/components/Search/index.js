@@ -4,7 +4,6 @@ import Loader from 'react-loader-spinner'
 import {Link} from 'react-router-dom'
 
 import Header from '../Header'
-import Footer from '../Footer'
 import './index.css'
 
 const apiStatusConstants = {
@@ -166,7 +165,6 @@ class Search extends Component {
           enterClicked={this.onClickEnterButton}
         />
         {this.renderResults()}
-        <Footer className="footer-container" />
       </div>
     )
   }

@@ -90,7 +90,7 @@ class PopularMovies extends Component {
           const {id, title, posterPath} = eachMovie
           return (
             <Link to={`/movies/${id}`}>
-              <li key={title}>
+              <li key={id}>
                 <img
                   src={posterPath}
                   alt={title}

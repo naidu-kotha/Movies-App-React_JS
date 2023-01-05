@@ -63,23 +63,23 @@ const Header = props => {
             onChange={onChangeSearchInput}
             onKeyDown={onClickEnter}
           />
-          <button
-            type="button"
-            className="search-btn"
-            testid="searchButton"
-            onClick={onClickSearchIcon}
-          >
-            <HiOutlineSearch className="search-container-logo" />
+          <button type="button" className="search-btn" testid="searchButton">
+            <HiOutlineSearch
+              className="search-container-logo"
+              onClick={onClickSearchIcon}
+            />
           </button>
         </div>
         <Link to="/search">
           <HiOutlineSearch className={searchIconClassName} />
         </Link>
-        <img
-          src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671881458/Movies%20App/Avatarprofile_lyxntc.jpg"
-          alt="profile"
-          className="profile-img"
-        />
+        <Link to="/account">
+          <img
+            src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671881458/Movies%20App/Avatarprofile_lyxntc.jpg"
+            alt="profile"
+            className="profile-img"
+          />
+        </Link>
       </div>
     </nav>
   )
