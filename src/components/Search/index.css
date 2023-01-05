@@ -1,0 +1,90 @@
+.search-results-movie-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #181818;
+}
+
+.search-results-list-container {
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 60px;
+  list-style-type: none;
+}
+
+.search-result-img {
+  width: 255px;
+  height: 170px;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+
+.no-results-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.no-results-img {
+  height: 370px;
+  width: 450px;
+}
+
+.no-movies-text {
+  font-family: 'HK Grotesk';
+  font-weight: 500;
+  font-size: 24px;
+  color: #ffffff;
+}
+
+.footer-container {
+  bottom: 0;
+  width: 100%;
+}
+
+.search-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.search-failure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.search-failure-image {
+  height: 200px;
+  width: 300px;
+}
+
+.search-failure-msg {
+  font-family: 'HK Grotesk';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 31px;
+  color: #ffffff;
+}
+
+.search-retry-btn {
+  padding: 8px 12px;
+  background: #ffffff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #171f46;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
