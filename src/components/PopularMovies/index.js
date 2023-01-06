@@ -89,15 +89,15 @@ class PopularMovies extends Component {
         {popularMoviesArray.map(eachMovie => {
           const {id, title, posterPath} = eachMovie
           return (
-            <Link to={`/movies/${id}`}>
-              <li key={id}>
+            <li key={id}>
+              <Link to={`/movies/${id}`}>
                 <img
                   src={posterPath}
                   alt={title}
                   className="popular-movie-img"
                 />
-              </li>
-            </Link>
+              </Link>
+            </li>
           )
         })}
       </ul>

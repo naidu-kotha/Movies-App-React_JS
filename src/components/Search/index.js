@@ -2,8 +2,8 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {Link} from 'react-router-dom'
+import {HiOutlineSearch} from 'react-icons/hi'
 
-import Header from '../Header'
 import './index.css'
 
 const apiStatusConstants = {
@@ -20,8 +20,22 @@ class Search extends Component {
     searchResultsArray: [],
   }
 
-  componentDidMount() {
+  //   componentDidMount() {
+  //     this.getSearchResultsApi()
+  //   }
+
+  onChangeSearchInput = event => {
+    this.setState({searchInput: event.target.value})
+  }
+
+  onClickSearchButton = () => {
     this.getSearchResultsApi()
+  }
+
+  onClickEnterButton = event => {
+    if (event.key === 'Enter') {
+      this.getSearchResultsApi()
+    }
   }
 
   getSearchResultsApi = async () => {
@@ -67,15 +81,15 @@ class Search extends Component {
         {searchResultsArray.map(eachMovie => {
           const {id, title, posterPath} = eachMovie
           return (
-            <Link to={`/movies/${id}`}>
-              <li key={title}>
+            <li key={title}>
+              <Link to={`/movies/${id}`}>
                 <img
                   src={posterPath}
                   alt={title}
                   className="search-result-img"
                 />
-              </li>
-            </Link>
+              </Link>
+            </li>
           )
         })}
       </ul>
@@ -128,16 +142,59 @@ class Search extends Component {
     </div>
   )
 
-  onChangeSearchInput = input => {
-    this.setState({searchInput: input})
-  }
-
-  onClickSearchButton = () => {
-    this.getSearchResultsApi()
-  }
-
-  onClickEnterButton = () => {
-    this.getSearchResultsApi()
+  renderHeader = () => {
+    const {searchInput} = this.state
+    return (
+      <nav className="nav-bar">
+        <div className="nav-items-container">
+          <Link to="/" className="header-link">
+            <img
+              src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671795411/Movies%20App/Movies_Logo_iassdx.png"
+              alt="website logo"
+              className="header-logo"
+            />
+          </Link>
+          <ul className="menu-container">
+            <li className="menu-item">
+              <Link to="/" className="header-link">
+                Home
+              </Link>
+            </li>
+            <li className="menu-item">
+              <Link to="/popular" className="header-link">
+                Popular
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div className="nav-items-container">
+          <div className="search-container">
+            <input
+              type="search"
+              className="search-bar"
+              value={searchInput}
+              onChange={this.onChangeSearchInput}
+              onKeyDown={this.onClickEnterButton}
+            />
+            <button
+              type="button"
+              className="search-btn"
+              onClick={this.onClickSearchButton}
+              testid="searchButton"
+            >
+              <HiOutlineSearch className="search-container-logo" />
+            </button>
+          </div>
+          <Link to="/account">
+            <img
+              src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671881458/Movies%20App/Avatarprofile_lyxntc.jpg"
+              alt="profile"
+              className="profile-img"
+            />
+          </Link>
+        </div>
+      </nav>
+    )
   }
 
   renderResults = () => {
@@ -158,12 +215,7 @@ class Search extends Component {
   render() {
     return (
       <div className="search-results-movie-container">
-        <Header
-          changeSearchInput={this.onChangeSearchInput}
-          searchIconClicked="true"
-          onClickSearchButton={this.onClickSearchButton}
-          enterClicked={this.onClickEnterButton}
-        />
+        {this.renderHeader()}
         {this.renderResults()}
       </div>
     )
