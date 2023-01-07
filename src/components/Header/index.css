@@ -2,13 +2,19 @@
   background-color: #181818;
   opacity: 0.7;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   padding: 20px 60px;
+}
+
+.nav-bar-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .nav-items-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -59,7 +65,7 @@
   display: none;
 }
 
-.search-btn {
+.header-btn {
   padding: 0;
   border: none;
   outline: none;
@@ -78,7 +84,7 @@
   border-bottom-right-radius: 4px;
 }
 
-.search-logo {
+.header-icon {
   width: 24px;
   height: 24px;
   color: #ffffff;
@@ -89,4 +95,75 @@
   border-radius: 48px;
   height: 48px;
   width: 48px;
+}
+
+.popup-menu-container {
+  display: none;
+}
+
+.no-popup {
+  display: none;
+}
+
+.header-menu-btn {
+  display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .nav-bar {
+    padding: 20px 30px;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .profile-img {
+    display: none;
+  }
+
+  .sm-menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .popup-menu-container {
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .sm-header-item {
+    font-family: 'HK Grotesk';
+    font-weight: 400;
+    font-size: 20px;
+    color: #ffffff;
+    margin-right: 30px;
+  }
+
+  .header-menu-btn {
+    display: block;
+    padding: 0;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    background-color: transparent;
+  }
+
+  .close-button {
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .no-popup {
+    display: none;
+  }
+
+  .close-icon {
+    color: #ffffff;
+  }
 }

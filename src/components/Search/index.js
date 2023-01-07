@@ -145,29 +145,29 @@ class Search extends Component {
   renderHeader = () => {
     const {searchInput} = this.state
     return (
-      <nav className="nav-bar">
-        <div className="nav-items-container">
-          <Link to="/" className="header-link">
+      <nav className="search-nav-bar">
+        <div className="search-nav-items-container">
+          <Link to="/" className="search-header-link">
             <img
               src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671795411/Movies%20App/Movies_Logo_iassdx.png"
               alt="website logo"
-              className="header-logo"
+              className="search-header-logo"
             />
           </Link>
-          <ul className="menu-container">
-            <li className="menu-item">
-              <Link to="/" className="header-link">
+          <ul className="search-menu-container">
+            <li className="search-menu-item">
+              <Link to="/" className="search-header-link">
                 Home
               </Link>
             </li>
-            <li className="menu-item">
-              <Link to="/popular" className="header-link">
+            <li className="search-menu-item">
+              <Link to="/popular" className="search-header-link">
                 Popular
               </Link>
             </li>
           </ul>
         </div>
-        <div className="nav-items-container">
+        <div className="search-nav-items-container">
           <div className="search-container">
             <input
               type="search"
@@ -189,7 +189,7 @@ class Search extends Component {
             <img
               src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671881458/Movies%20App/Avatarprofile_lyxntc.jpg"
               alt="profile"
-              className="profile-img"
+              className="search-profile-img"
             />
           </Link>
         </div>

@@ -28,6 +28,7 @@
   flex-direction: column;
   position: fixed;
   top: 33%;
+  width: 35%;
 }
 
 .login-heading {
@@ -72,7 +73,6 @@
   color: #e2e8f0;
   padding-left: 10px;
   height: 35px;
-  width: 350px;
 }
 
 .login-btn {
@@ -101,4 +101,26 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
+}
+
+@media screen and (max-width: 767px) {
+  .login-bg {
+    background: #131313;
+    padding: 30px;
+  }
+
+  .login-card {
+    background-color: transparent;
+    padding: 30px;
+    width: 100%;
+    top: 30%;
+  }
+
+  .input-box {
+    min-width: 100%;
+  }
+
+  .login-heading {
+    align-self: flex-start;
+  }
 }

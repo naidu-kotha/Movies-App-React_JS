@@ -134,12 +134,9 @@ class Home extends Component {
   )
 
   renderLoadingView = () => (
-    <>
-      {/* <Header /> */}
-      <div className="loader-container" testid="loader">
-        <Loader type="TailSpin" color="#D81F26" height={80} width={80} />
-      </div>
-    </>
+    <div className="loader-container" testid="loader">
+      <Loader type="TailSpin" color="#D81F26" height={80} width={80} />
+    </div>
   )
 
   reloadTrendingMoviesApi = () => {
@@ -147,44 +144,39 @@ class Home extends Component {
   }
 
   renderOriginalsFailureView = () => (
-    <>
-      {/* <Header /> */}
-      <div className="failure-poster-container">
-        <img
-          src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
-          alt="failure view"
-          className="failure-image"
-        />
-        <p className="failure-msg">Something went wrong. Please try again</p>
-        <button
-          type="button"
-          className="retry-btn"
-          onClick={this.reloadOriginalsApi}
-        >
-          Try Again
-        </button>
-      </div>
-    </>
+    <div className="failure-poster-container">
+      <img
+        src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
+        alt="failure view"
+        className="failure-image"
+      />
+      <p className="failure-msg">Something went wrong. Please try again</p>
+      <button
+        type="button"
+        className="retry-btn"
+        onClick={this.reloadOriginalsApi}
+      >
+        Try Again
+      </button>
+    </div>
   )
 
   renderTrendingMoviesFailureView = () => (
-    <>
-      <div className="failure-poster-container">
-        <img
-          src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
-          alt="failure view"
-          className="failure-image"
-        />
-        <p className="failure-msg">Something went wrong. Please try again</p>
-        <button
-          type="button"
-          className="retry-btn"
-          onClick={this.reloadTrendingMoviesApi}
-        >
-          Try Again
-        </button>
-      </div>
-    </>
+    <div className="failure-poster-container">
+      <img
+        src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1672075017/alert_triangle_qovcjb.png"
+        alt="failure view"
+        className="failure-image"
+      />
+      <p className="failure-msg">Something went wrong. Please try again</p>
+      <button
+        type="button"
+        className="retry-btn"
+        onClick={this.reloadTrendingMoviesApi}
+      >
+        Try Again
+      </button>
+    </div>
   )
 
   renderTopCard = () => {
