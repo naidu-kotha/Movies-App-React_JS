@@ -25,14 +25,14 @@ const MoviesSlider = props => {
         },
       },
       {
-        breakpoint: 600,
+        breakpoint: 915,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 530,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,

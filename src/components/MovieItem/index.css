@@ -63,7 +63,6 @@
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
-  line-height: 63px;
   color: #ffffff;
   margin: 0;
 }
@@ -161,5 +160,58 @@
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+  justify-content: space-between;
   margin: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .movie-details-container {
+    padding: 20px 30px;
+    justify-content: flex-end;
+    height: 100%;
+  }
+
+  .movie-details-heading {
+    font-size: 24px;
+  }
+
+  .timeline,
+  .certification {
+    font-size: 16px;
+  }
+
+  .movie-details-overview {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .movie-details-info-container {
+    padding: 20px 30px;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .info-container {
+    min-width: 70px;
+  }
+
+  .info-heading {
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .info-details {
+    font-size: 12px;
+  }
+
+  .more-movies-container {
+    padding: 0px 30px;
+  }
+
+  .more-movies-heading {
+    font-size: 20px;
+  }
 }

@@ -15,12 +15,14 @@
 
 .account-heading {
   border-bottom: 1px solid #cbd5e1;
-  line-height: 2.5;
+  color: #131313;
+  font-family: 'HK Grotesk';
+  font-size: 40px;
+  padding-bottom: 5px;
 }
 
 .account-details-container {
   display: flex;
-  /* border-bottom: 1px solid #cbd5e1; */
 }
 
 .account-sub-heading {
@@ -29,7 +31,6 @@
   color: #94a3b8;
   margin: 0;
   margin-right: 20px;
-  /* line-height: 2; */
 }
 
 .user-details-container {
@@ -86,4 +87,25 @@
   border: none;
   outline: none;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 767px) {
+  .account-container {
+    justify-content: flex-start;
+    padding: 20px 30px;
+  }
+
+  .account-heading {
+    font-size: 32px;
+  }
+
+  .account-sub-heading {
+    font-size: 18px;
+  }
+
+  .user-details-text,
+  .password-details {
+    font-size: 16px;
+  }
+
 }

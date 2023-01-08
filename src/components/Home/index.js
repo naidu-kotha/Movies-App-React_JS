@@ -135,7 +135,7 @@ class Home extends Component {
 
   renderLoadingView = () => (
     <div className="loader-container" testid="loader">
-      <Loader type="TailSpin" color="#D81F26" height={80} width={80} />
+      <Loader type="TailSpin" color="#D81F26" height={40} width={40} />
     </div>
   )
 
@@ -185,7 +185,9 @@ class Home extends Component {
     return (
       <div
         className="home-success-bg"
-        style={{backgroundImage: `url(${backdropPath})`}}
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(24, 24, 24, 0.546875) 38.26%, #181818 92.82%, #181818 98.68%, #181818 108.61%), url(${backdropPath})`,
+        }}
       >
         <Header />
         <div className="poster-details-container">

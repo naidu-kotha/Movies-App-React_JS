@@ -15,7 +15,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
 }
 
 .popular-movies-failure-image {
@@ -49,7 +49,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: space-between;
   padding-left: 0;
   list-style-type: none;
   padding: 20px 60px;
@@ -59,6 +59,30 @@
 .popular-movie-img {
   width: 255px;
   height: 170px;
-  margin: 20px;
+  /* margin: 20px; */
   border-radius: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .popular-movie-img {
+    width: 90px;
+    height: 100px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .popular-movies-container {
+    padding: 20px 30px;
+    justify-content: space-around;
+    padding-top: 0;
+  }
+
+  .popular-movies-failure-image {
+    width: 240px;
+    height: 170px;
+  }
+
+  .popular-movies-failure-msg {
+    font-size: 16px;
+  }
 }

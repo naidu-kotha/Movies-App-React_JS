@@ -1,11 +1,19 @@
 .movie-image {
-  width: 270px;
-  max-height: 170px;
+  width: 200px;
+  max-height: 150px;
   border-radius: 8px;
   margin-inline: 15px;
 }
 
-.slick-prev:before,
+/* .slick-prev:before,
 .slick-next:before {
   color: #fff !important;
+} */
+
+@media screen and (max-width: 767px) {
+  .movie-image {
+    width: 140px;
+    height: 94px;
+    margin-left: 0;
+  }
 }

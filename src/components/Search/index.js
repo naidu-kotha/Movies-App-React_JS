@@ -18,11 +18,8 @@ class Search extends Component {
     apiStatus: apiStatusConstants.initial,
     searchInput: '',
     searchResultsArray: [],
+    menuClicked: false,
   }
-
-  //   componentDidMount() {
-  //     this.getSearchResultsApi()
-  //   }
 
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
@@ -30,6 +27,10 @@ class Search extends Component {
 
   onClickSearchButton = () => {
     this.getSearchResultsApi()
+  }
+
+  onClickMenu = () => {
+    this.setState(prevState => ({menuClicked: !prevState.menuClicked}))
   }
 
   onClickEnterButton = event => {
@@ -143,57 +144,94 @@ class Search extends Component {
   )
 
   renderHeader = () => {
-    const {searchInput} = this.state
+    const {searchInput, menuClicked} = this.state
+    const menuClassName = menuClicked
+      ? 'search-sm-menu-container'
+      : 'search-no-popup'
     return (
-      <nav className="search-nav-bar">
-        <div className="search-nav-items-container">
-          <Link to="/" className="search-header-link">
-            <img
-              src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671795411/Movies%20App/Movies_Logo_iassdx.png"
-              alt="website logo"
-              className="search-header-logo"
-            />
-          </Link>
-          <ul className="search-menu-container">
-            <li className="search-menu-item">
-              <Link to="/" className="search-header-link">
-                Home
-              </Link>
-            </li>
-            <li className="search-menu-item">
-              <Link to="/popular" className="search-header-link">
-                Popular
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className="search-nav-items-container">
-          <div className="search-container">
-            <input
-              type="search"
-              className="search-bar"
-              value={searchInput}
-              onChange={this.onChangeSearchInput}
-              onKeyDown={this.onClickEnterButton}
-            />
+      <>
+        <nav className="search-nav-bar">
+          <div className="search-nav-items-container">
+            <Link to="/" className="search-header-link">
+              <img
+                src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671795411/Movies%20App/Movies_Logo_iassdx.png"
+                alt="website logo"
+                className="search-header-logo"
+              />
+            </Link>
+            <ul className="search-menu-container">
+              <li className="search-menu-item">
+                <Link to="/" className="search-header-link">
+                  Home
+                </Link>
+              </li>
+              <li className="search-menu-item">
+                <Link to="/popular" className="search-header-link">
+                  Popular
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div className="search-nav-items-container">
+            <div className="search-container">
+              <input
+                type="search"
+                className="search-bar"
+                value={searchInput}
+                onChange={this.onChangeSearchInput}
+                onKeyDown={this.onClickEnterButton}
+              />
+              <button
+                type="button"
+                className="search-btn"
+                onClick={this.onClickSearchButton}
+                testid="searchButton"
+              >
+                <HiOutlineSearch className="search-container-logo" />
+              </button>
+            </div>
+            <Link to="/account">
+              <img
+                src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671881458/Movies%20App/Avatarprofile_lyxntc.jpg"
+                alt="profile"
+                className="search-profile-img"
+              />
+            </Link>
             <button
+              className="header-menu-btn"
               type="button"
-              className="search-btn"
-              onClick={this.onClickSearchButton}
-              testid="searchButton"
+              onClick={this.onClickMenu}
             >
-              <HiOutlineSearch className="search-container-logo" />
+              <img
+                src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1673089865/Movies%20App/add-to-queue_1_ac1xec.png"
+                alt="header menu"
+                className="header-icon"
+              />
             </button>
           </div>
-          <Link to="/account">
+        </nav>
+        <div className={menuClassName}>
+          <ul className="search-popup-menu-container">
+            <Link to="/" className="search-header-link">
+              <li className="search-sm-header-item">Home</li>
+            </Link>
+            <Link to="/popular" className="search-header-link">
+              <li className="search-sm-header-item">Popular</li>
+            </Link>
+            <Link to="/account" className="search-header-link">
+              <li className="search-sm-header-item">Account</li>
+            </Link>
+          </ul>
+          <button type="button" className="search-close-button">
             <img
-              src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1671881458/Movies%20App/Avatarprofile_lyxntc.jpg"
-              alt="profile"
-              className="search-profile-img"
+              src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1673114477/Movies%20App/Shape_bx1ekl.png"
+              className="search-close-icon"
+              alt="close"
+              onClick={this.onClickMenu}
             />
-          </Link>
+          </button>
         </div>
-      </nav>
+      </>
     )
   }
 

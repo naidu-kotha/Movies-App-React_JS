@@ -84,6 +84,7 @@ class Header extends Component {
               src="https://res.cloudinary.com/dck3ikgrn/image/upload/v1673114477/Movies%20App/Shape_bx1ekl.png"
               className="close-icon"
               alt="close"
+              onClick={this.onClickMenu}
             />
           </button>
         </div>
